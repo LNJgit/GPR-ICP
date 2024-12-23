@@ -29,6 +29,8 @@ public:
 	void sendToOpenGL(ShaderProgram &program);
 	void render() const;
 	void free();
+
+	void applyTransformation(const glm::mat4& transform);
 	
 	const vector<glm::vec3> &getPoints() const { return points; }
 	vector<glm::vec3> &getPoints() { return points; }

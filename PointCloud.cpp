@@ -183,7 +183,13 @@ void PointCloud::changeAllColors(const glm::vec4 &color, ShaderProgram &program)
 	sendToOpenGL(program);
 }
 
-
+void PointCloud::applyTransformation(const glm::mat4& transform)
+{
+    for (glm::vec3& point : points) {
+        glm::vec4 transformedPoint = transform * glm::vec4(point, 1.0f); // APPLY TRANSFORMATION
+        point = glm::vec3(transformedPoint); // UPDATE POINT POSITION
+    }
+}
 
 
 

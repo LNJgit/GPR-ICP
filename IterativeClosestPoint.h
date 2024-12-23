@@ -16,12 +16,13 @@ public:
 	vector<int> *computeCorrespondence();
 	glm::mat4 computeICPStep();
 	
-	vector<int> *computeFullICP(unsigned int maxSteps = 100);
+	vector<int> *computeFullICP(unsigned int maxSteps = 200);
 	
 private:
 	PointCloud *cloud1, *cloud2;
 	NearestNeighbors knn;
-
+    std::vector<bool> borderPoints; // STORES WHETHER EACH POINT IS A BORDER POINT
+	std::vector<int> correspondences; //STORES THE INDICES OF THE CLOSEST POINTS OF CLOUD 1 
 };
 
 
